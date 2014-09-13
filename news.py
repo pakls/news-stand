@@ -2,6 +2,7 @@
 
 
 from BeautifulSoup import BeautifulSoup as bs
+import hashlib
 
 
 def to_str(var):
@@ -20,6 +21,26 @@ class news_class:
     image                = None
     source_modified_time = None
     url                  = None
+
+    def sha1(self):
+        h = hashlib.sha1()
+        h.update(self.json())
+        return h.digest()
+
+    def sha1_hex(self):
+        h = hashlib.sha1()
+        h.update(self.json())
+        return h.hexdigest()
+
+    def md5(self):
+        h = hashlib.md5()
+        h.update(self.json())
+        return h.digest()
+
+    def md5_hex(self):
+        h = hashlib.md5()
+        h.update(self.json())
+        return h.hexdigest()
 
     def json(self, json_obj = None):
         """
@@ -113,3 +134,5 @@ if __name__ == "__main__":
     news = h.get_news()
     dump( news )
     print news.json()
+    print news.md5_hex()
+    print news.sha1_hex()
