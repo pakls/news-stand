@@ -29,11 +29,11 @@ class news_class:
         """
         if json_obj == None:
 
-            o  = '{ "title": %s, '       % (to_str(self.title))
-            o += '  "description": %s, ' % (to_str(self.description))
-            o += '  "image": %s, '       % (to_str(self.image))
-            o += '  "url": %s, '         % (to_str(self.url))
-            o += '  "utime": %s '        % (to_str(self.source_modified_time))
+            o  = '{"title":%s,'      % (to_str(self.title))
+            o += '"description":%s,' % (to_str(self.description))
+            o += '"image":%s,'       % (to_str(self.image))
+            o += '"url":%s,'         % (to_str(self.url))
+            o += '"utime":%s'        % (to_str(self.source_modified_time))
             o += '}'
 
             return o
